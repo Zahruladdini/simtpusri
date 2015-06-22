@@ -15,6 +15,10 @@ class Mt_model extends CI_Model {
         $tambah=$this->db->insert('manajemen_training',$data);
         return $tambah;
 	}
+    public function tambahkelas($data){
+        $tambah=$this->db->insert('kegiatan',$data);
+        return $tambah;
+    }
 
     function per_id($id)
     {

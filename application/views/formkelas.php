@@ -66,11 +66,20 @@
                         FORM PEMBUATAN KELAS & KEGIATAN BARU
                     </div>
                     <div class="panel-body">
-                        <form method="post" action="<?php echo base_url()?>index.php/daftarmt/add">
+                        <?php
+                        $id=$this->uri->segment(3);
+                        ?>
+                        <form method="post" action="<?php echo base_url()?>index.php/kegiatan/tambahkelas/<?php echo$id; ?>">
 
-                            <div class="form-group">
+                                <div class="form-group">
+                                    <label for="exampleInputNama">Id Manajemen Trainee</label>
+                                    <input type="text" disabled class="form-control" id="exampleInputEmail1" name="namakelas" placeholder="Nama" value="<?php echo $id ; ?>" required />
+                                </div>
+
+
+                                <div class="form-group">
                                 <label for="exampleInputNama">Nama Kelas</label>
-                                <input type="text" class="form-control" id="exampleInputEmail1" name="nama" placeholder="Nama" required />
+                                <input type="text" class="form-control" id="exampleInputEmail1" name="namakelas" placeholder="Nama" required />
                             </div>
 
                             <div class="form-group">
@@ -81,8 +90,6 @@
                                 <label for="exampleInputPassword1">Tanggal selesai</label>
                                 <input type="date"  class="form-control" id="exampleInputPassword1" name="tanggalakhir" placeholder="MM/DD/YYYY" required />
                             </div>
-
-
                             <button type="submit" class="btn btn-default">Submit</button>
                             <hr>
 

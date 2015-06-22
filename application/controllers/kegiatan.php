@@ -32,11 +32,26 @@ class Kegiatan extends CI_Controller {
     }
     public function formkelas()
     {
-        $this->load->view('formkelas');
+        $id=$this->uri->segment(3);
+        $this->load->model('mt_model');
+        $data['hasil'] = $this->mt_model->per_id($id);
+        $this->load->view('formkelas',$data);
     }
     public function formmateri()
     {
         $this->load->view('formmateri');
+    }
+    public function tambahkelas()
+    {
+        $id = $this->uri->segment(3);
+        $this->load->model('mt_model');
+        $data= array('nama_kegiatan' => $this->input->post('namakelas'),
+            'tanggal_mulai' => $this->input->post('tanggalawal'),
+            'tanggal_akhir' => $this->input->post('tanggalakhir'),
+            'id_mt' => $id
+            );
+        $this->mt_model->tambahkelas($data);
+        redirect("kegiatan/tambah/$id");
     }
 }
 

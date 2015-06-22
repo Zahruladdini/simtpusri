@@ -49,7 +49,9 @@
                     <center><h2 class="page-head-line">Sistem Informasi Manajemen Trainee PT PUSRI</h2></center>
 
                 </div>
-
+                <?php
+                $id = $this->uri->segment(3);
+                ?>
             </div>
             <div class="row">
                 <div class="col-md-6"><br/>
@@ -58,7 +60,7 @@
                          <h3><strong> PEMBUKAAN MANAJEMEN TRAINEE PT PUPUK SRIWIDJAJA</strong></h3>
                         <ul>
                             <li>
-                                Manajemen Trainee Tamatan SMA Batch 2 Tahun 2015 <a href="" class="daftar">REGISTRASI</a>
+                                Manajemen Trainee Tamatan SMA Batch 2 Tahun 2015 <a href="index.php/form/<?php $id;?>" class="daftar">REGISTRASI</a>
                             </li>
                           
                             <li>

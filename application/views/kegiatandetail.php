@@ -68,7 +68,12 @@
                 <!--   Kitchen Sink -->
 
                 <div class="alert-success"></div>
-                <button class="btn btn-danger"><i class="fa fa-pencil"></i><a class="klik" href="http://localhost/simtpusri/index.php/kegiatan/formkelas"> Tambah kelas dan kegiatan baru</a></button><br/><br/>
+                <?php
+                $id=$this->uri->segment(3);
+
+
+                ?>
+                <button class="btn btn-danger"><i class="fa fa-pencil"></i><a class="klik" href="../../kegiatan/formkelas/<?php echo $id ; ?>">Tambah kelas dan kegiatan baru</a></button><br/><br/>
                 <div class="panel panel-default">
 
                     <div class="panel-heading">
@@ -89,7 +94,6 @@
 
                                     </tr>
                                     <?php
-                                    $no = 1;
                                     foreach($hasil as $data):
                                         ?>
                                         <tr>
@@ -97,12 +101,12 @@
                                             <td> <?php echo $data->nama_kegiatan; ?> </td>
                                             <td> <?php echo $data->tanggal_mulai; ?> </td>
                                             <td> <?php echo $data->tanggal_akhir; ?> </td>
-                                            <td><a href="../tambahmateri/<?= $data->id;?>">Tambah Materi</a></td>
+                                            <td><a href="../tambahmateri/<?= $data->id;?>">Materi</a></td>
                                             <td><a href="">Update</a></td>
                                             <td><a href="">Delete</a></td>
                                         </tr>
                                         <?php
-                                        $no++;
+
                                     endforeach;
                                     ?>
                                     </thead>

@@ -21,6 +21,7 @@
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+
 </head>
 <body>
 
@@ -54,64 +55,52 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                <a href="<?php echo base_url()?>/home"> Home</a> > Manajemen Trainee
+                Home > Manajemen Trainee > Create
                 <br/>
                 <br/>
 
             </div>
-
             <div class="col-md-6">
-
-                <?php if ($this->session->flashdata('category_success')) { ?>
-
-                <?php } ?>
-                <!--   Kitchen Sink -->
-
-                <div class="alert-success"></div>
                 <div class="panel panel-default">
-
                     <div class="panel-heading">
-                        Daftar Manajemen Trainee PT PUSRI
+                        FORM PEMBUATAN KELAS & KEGIATAN BARU
                     </div>
                     <div class="panel-body">
-                        <div class="table-responsive">
-                            <table class="table table-striped table-bordered table-hover">
-                                <thead>
-                                <tr>
+                        <?php
+                        $id = $this->uri->segment(4);
+                        $id_mt = $this->uri->segment(3);
+                        ?>
+                        <form method="post" action="<?php echo base_url()?>index.php/kegiatan/updatekelas/<?php echo $id_mt;?>/<?php echo $id; ?>">
+                            <?php
+                            $no = 1;
+                            foreach($hasil as $value):
+                            ?>
+                            <div class="form-group">
+                                <label for="exampleInputNama">Id Kegiatan</label>
+                                <input type="text" disabled class="form-control" id="exampleInputEmail1" name="namakelas" placeholder="Nama" value="<?php echo $id ; ?>" required />
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputNama">Nama Kelas</label>
+                                <input type="text" class="form-control" id="exampleInputEmail1" name="namakelas" placeholder="Nama" value="<?php echo $value->nama_kegiatan; ?> " required />
+                            </div>
 
-                                    <th>Nama</th>
-                                    <th>Tanggal Mulai</th>
-                                    <th>Tanggal Selesai</th>
-                                    <th>Jalur</th>
-                                    <th>Batch</th>
-                                    <th>Kegiatan</th>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Tanggal mulai</label>
+                                <input type="date" class="form-control" id="exampleInputPassword1" name="tanggalawal" value="<?php echo $value->tanggal_mulai; ?>" placeholder="MM/DD/YYYY" required />
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Tanggal selesai</label>
+                                <input type="date"  class="form-control" id="exampleInputPassword1" name="tanggalakhir" value="<?php echo $value->tanggal_akhir; ?>" placeholder="MM/DD/YYYY" required />
+                            </div>
+                            <button type="submit" class="btn btn-default">Submit</button>
+                            <hr>
+                            <?php
 
-                                </tr>
-                                </thead><?php
-                                $no = 1;
-                                foreach($hasil as $data):
-                                    ?>
-                                    <tr>
-
-                                        <td> <?php echo $data->nama_mt; ?> </td>
-                                        <td> <?php echo $data->tanggal_awal; ?> </td>
-                                        <td> <?php echo $data->tanggal_akhir; ?> </td>
-                                        <td> <?php echo $data->jalur; ?> </td>
-                                        <td> <?php echo $data->batch; ?> </td>
-                                        <td><a href="kegiatan/tambah/<?= $data->id;?>">Tambah Kegiatan</a></td>
-                                    </tr>
-                                    <?php
-                                    $no++;
-                                endforeach;
-                                ?>
-
-
-                                </tbody>
-                            </table>
-                        </div>
+                            endforeach;
+                            ?>
+                        </form>
                     </div>
                 </div>
-                <!-- End  Kitchen Sink -->
             </div>
         </div>
         <div class="row">

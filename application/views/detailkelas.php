@@ -66,9 +66,11 @@
 
                 <?php } ?>
                 <!--   Kitchen Sink -->
-
+                <?php
+                $id = $this->uri->segment(3);
+                ;?>
                 <div class="alert-success"></div>
-                <button class="btn btn-danger"><i class="fa fa-pencil"></i><a class="klik" href="http://localhost/simtpusri/index.php/kegiatan/formmateri"> Tambah materi</a></button><br/><br/>
+                <button class="btn btn-danger"><i class="fa fa-pencil"></i><a class="klik" href="http://localhost/simtpusri/index.php/kegiatan/formmateri/<?php echo $id;?>"> Tambah materi</a></button><br/><br/>
                 <div class="panel panel-default">
 
                     <div class="panel-heading">
@@ -102,7 +104,7 @@
                                         <td> <?php echo $data->instruktur; ?> </td>
                                         <td><a href="../tambahmateri/<?= $data->id;?>">Tambah Materi</a></td>
                                         <td><a href="">Update</a></td>
-                                        <td><a href="">Delete</a></td>
+                                        <td><a href="../hapusmateri/<?= $data->id_kegiatan;?>/<?= $data->id;?>">Delete</a></td>
                                     </tr>
                                     <?php
                                     $no++;

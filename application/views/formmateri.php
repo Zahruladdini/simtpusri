@@ -66,7 +66,10 @@
                         FORM PEMBUATAN MATERI BARU
                     </div>
                     <div class="panel-body">
-                        <form method="post" action="<?php echo base_url()?>index.php/daftarmt/add">
+                        <?php
+                            $id = $this->uri->segment(3);
+                        ?>
+                        <form method="post" action="<?php echo base_url()?>index.php/kegiatan/upload/<?php echo $id; ?>">
 
                             <div class="form-group">
                                 <label for="exampleInputNama">Nama Materi</label>
@@ -74,12 +77,12 @@
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputNama">Deskripsi materi</label>
-                                <textarea class="form-control" id="exampleInputEmail1" name="nama" placeholder="Nama" required /></textarea>
+                                <textarea class="form-control" id="exampleInputEmail1" name="deskripsi" placeholder="Nama" required /></textarea>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputFile">File input</label>
-                                <input type="file" id="exampleInputFile">
-                                <p class="help-block">Example block-level help text here.</p>
+                                <input type="file" name="userfile" id="exampleInputFile">
+                                <p class="help-block">FIle pdf atau word | max size = 1000 kb</p>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Tanggal </label>
@@ -87,19 +90,17 @@
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Jam Mulai</label>
-                                <input type="time"  class="form-control" id="exampleInputPassword1" name="tanggalakhir"  required />
+                                <input type="time"  class="form-control" id="exampleInputPassword1" name="jammulai"  required />
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Jam Selesai</label>
-                                <input type="time"  class="form-control" id="exampleInputPassword1" name="tanggalakhir"  required />
+                                <input type="time"  class="form-control" id="exampleInputPassword1" name="jamselesai"  required />
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Instruktur</label>
-                                <input type="text"  class="form-control" id="exampleInputPassword1" name="tanggalakhir" placeholder="Instruktur"  required />
+                                <input type="text"  class="form-control" id="exampleInputPassword1" name="instruktur" placeholder="Instruktur"  required />
                             </div>
-
-
-                            <button type="submit" class="btn btn-default">Submit</button>
+                            <input type="submit" name="submit" class="btn btn-default">
                             <hr>
 
                         </form>

@@ -19,7 +19,11 @@ class Mt_model extends CI_Model {
         $tambah=$this->db->insert('kegiatan',$data);
         return $tambah;
     }
+    public function tambahmateri($data){
 
+        $tambah=$this->db->insert('materi',$data);
+        return $tambah;
+    }
     function per_id($id)
     {
     $this->db->where('id',$id);
@@ -32,9 +36,15 @@ class Mt_model extends CI_Model {
         $query=$this->db->get('kegiatan');
         return $query->result();
     }
-    function per_idmateri($id)
+    function per_idkelas($id)
     {
         $this->db->where('id',$id);
+        $query=$this->db->get('kegiatan');
+        return $query->result();
+    }
+    function per_idmateri($id)
+    {
+        $this->db->where('id_kegiatan',$id);
         $query=$this->db->get('materi');
         return $query->result();
     }
@@ -44,7 +54,18 @@ class Mt_model extends CI_Model {
 		$hapus=$this->db->delete('manajemen_training');
 		return $hapus;
 	}
-
+    function hapuskelas($id)
+    {
+        $this->db->where('id',$id);
+        $hapus=$this->db->delete('kegiatan');
+        return $hapus;
+    }
+    function hapusmateri($id)
+    {
+        $this->db->where('id',$id);
+        $hapus=$this->db->delete('materi');
+        return $hapus;
+    }
     function update($id,$data)
     {
         $this->db->where('id',$id);
@@ -52,6 +73,12 @@ class Mt_model extends CI_Model {
         return $update;
     }
 
+    function updatekegiatan($id,$data)
+    {
+        $this->db->where('id',$id);
+        $update=$this->db->update('kegiatan',$data);
+        return $update;
+    }
 
 
 }

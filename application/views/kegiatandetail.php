@@ -54,7 +54,7 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                Home > Manajemen Trainee
+                <a href="<?php echo base_url()?>index.php/home"> Home</a> > Manajemen Trainee
                 <br/>
                 <br/>
 
@@ -102,8 +102,8 @@
                                             <td> <?php echo $data->tanggal_mulai; ?> </td>
                                             <td> <?php echo $data->tanggal_akhir; ?> </td>
                                             <td><a href="../tambahmateri/<?= $data->id;?>">Materi</a></td>
-                                            <td><a href="">Update</a></td>
-                                            <td><a href="">Delete</a></td>
+                                            <td><a href="../editkelas/<?= $data->id_mt;?>/<?= $data->id;?>">Update</a></td>
+                                            <td><a href="../hapuskelas/<?= $data->id_mt;?>/<?= $data->id;?>">Delete</a></td>
                                         </tr>
                                         <?php
 
